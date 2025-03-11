@@ -10,7 +10,7 @@ export async function getallfilmBydate() {
 
 export async function getallactiviteBydate() {
     const records = await pb.collection('activite').getFullList({
-        sort: 'date',
+        sort: 'date_act',
     });
     return records;
 }
@@ -36,28 +36,28 @@ export async function getOneInviteById(id) {
 }
 
 export async function getallActiviteByOneAnimateurId(id) {
-    const records = await pb.collection('activite').getFullList({filter: `animateur.nom ='${id}'`, expand: 'invite'});
+    const records = await pb.collection('activite').getFullList({filter: `invite_act.nom_inv ='${id}'`, expand: 'invite'});
     return records;
 }
 
 export async function getallActiviteByOneAnimateurName(nom) {
     const records = await pb.collection('activite').getFullList({
-        filter: `animateur.nom ='${nom}'`, expand: 'invite'
+        filter: `invite_act.nom_inv ='${nom}'`, expand: 'invite'
     });
     return records;
 }
 
 export async function modifFilmInformationById(id, data) {
-    const record = await pb.collection('film').updateOne(id, data);
+    const record = await pb.collection('film').modifOne(id, data);
     return record;
 }
 
 export async function modifActiviteInformationById(id, data) {
-    const record = await pb.collection('activite').updateOne(id, data);
+    const record = await pb.collection('activite').modifOne(id, data);
     return record;
 }
 
 export async function modifInviteInformationById(id, data) {
-    const record = await pb.collection('invite').updateOne(id, data);
+    const record = await pb.collection('invite').modifOne(id, data);
     return record;
 }
