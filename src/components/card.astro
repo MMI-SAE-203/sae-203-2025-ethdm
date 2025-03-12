@@ -1,0 +1,37 @@
+---
+import { getallactiviteBydate } from '../../backend/backend.mjs';
+
+const activite = await getallactiviteBydate();
+
+function formatDateHeure(dateString) {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() - 2);
+
+  const heure = date.toLocaleTimeString('fr-FR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  return `${heure}`;
+}
+---
+
+<section class="bg-[#212121] mx-auto space-y-4 p-6 text-white">
+  <h1 class="font-alegreya text-[36px] font-bold text-center mb-6">Liste des Activités</h1>
+  {activite.length > 0 ? (
+    <ul>
+      {activite.map(act => (
+        <li key={act.id} class="bg-[#282828] p-4">
+          <h2 class="font-alegreya pt-3 text-[24px] font-comfortaa text-white-100">{formatDateHeure(act.date_act)}
+          {act.titre_act}</h2>
+          <p class="font-ad font-[16px] mt-2">{act.desc_act}</p>
+          <div class="mt-4 text-right">
+	  <a href="pactivite" class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
+	</div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="text-center text-gray-400">Aucune activité trouvée.</p>
+  )}
+</section>

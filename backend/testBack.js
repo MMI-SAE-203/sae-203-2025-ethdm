@@ -6,9 +6,12 @@ import { getActiviteById } from './backend.mjs' ;
 import { getOneInviteById } from './backend.mjs' ;
 import { getallActiviteByOneAnimateurId } from './backend.mjs' ;
 import { getallActiviteByOneAnimateurName } from './backend.mjs' ;
-import { modifFilmInformationById } from './backend.mjs' ;
-import { modifActiviteInformationById } from './backend.mjs' ;
-import { modifInviteInformationById } from './backend.mjs' ;
+import { addNewFilm } from './backend.mjs' ;
+import { addNewActivite } from './backend.mjs' ;
+import { addNewInvite } from './backend.mjs' ;
+import { updateFilmById } from './backend.mjs' ;
+import { updateActiviteById } from './backend.mjs' ;
+import { updateInviteById } from './backend.mjs' ;
 
 //try {
 //    const movies = await getallfilmBydate() ;
@@ -64,10 +67,65 @@ import { modifInviteInformationById } from './backend.mjs' ;
 //    console.error(e) ;
 //}
 
-try {
-    const activite = await getallActiviteByOneAnimateurName('Ewald') ;
-    console.log(activite) ;
-}
-catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const activite = await getallActiviteByOneAnimateurName('Ewald') ;
+//    console.log(activite) ;
+//}
+//catch (e) {
+//    console.error(e) ;
+//}
+
+ //try {
+ //    const newFilm = {
+ //    "titre_film": "test"
+ // };
+ //
+ //    await addNewFilm(newFilm);
+ //}catch (e) {
+ //    console.error(e);
+ //}
+
+ //try {
+ //    const newActivite = {
+ //    "titre_act": "testact"
+ //};
+ //    await addNewActivite(newActivite);
+ //}catch (e) {
+//    console.error(e);
+//}
+
+// try {
+//     const newInvite = {
+//     "nom_inv": "testinv"
+// };
+//     await addNewInvite(newInvite);
+// }catch (e) {
+//     console.error(e);
+// }
+
+ try {
+     const newFilm = {
+         "titre_film": "test noce funèbre update"
+     }
+     await updateFilmById("52242644d4j65se", newFilm) ;
+ } catch (e) {
+     console.error(e) ;
+ }
+
+// try {
+//     const newActivite = {
+//         "titre": "test update masterclass vfx"
+//     }
+//     await updateActiviteById("g5c3f2e4f2800h0", newActivite) ;
+// } catch (e) {
+//     console.error(e) ;
+// }
+
+// try {
+//     const newInvite = {
+//         "nom": "Pawel test update"
+//     }
+//     await updateInviteById("985da66e611e349", newInvite) ;
+// } catch (e) {
+//     console.error(e) ;
+// }

@@ -1,46 +1,67 @@
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Festiv’Halloween</title>
-</head>
-<body class="bg-[#282828] text-white">
-    <!-- Header -->
-    <header class="mx-auto flex items-center justify-between bg-[#282828] p-4">
-        <a href="/index.html" class="flex items-center">
-            <img src="/src/assets/logo/logo.svg" alt="Logo Festiv'Halloween" class="w-10 h-10 mr-2">
-            <h1 class="font-alegreya text-3xl">Festiv'Halloween</h1>
-        </a>
-        
-        <button
-        id="menu-btn"
-        class="group relative z-10 flex h-5 w-7 flex-col justify-between *:block *:ease *:h-1 *:w-full *:transform *:rounded-full *:bg-pink *:transition *:duration-300 lg:hidden"
-        aria-label="Menu"
-        aria-controls="menu"
-        aria-expanded="false"
-      >
-        <span
-          class="group-aria-expanded:translate-y-[4px] group-aria-expanded:rotate-45"
-        ></span>
-        <span
-          class="group-aria-expanded:-translate-y-[4px] group-aria-expanded:-rotate-45"
-        ></span>
-        <span
-          class="group-aria-expanded:opacity-0 group-aria-expanded:invisible"
-        ></span>
-        
-      </button>
-    </header>
-    
-    <!-- Navigation Menu -->
-    <nav id="mainNav" class="hidden w-[375px] mx-auto bg-gray-700 p-4 text-white">
-        <ul class="space-y-2">
-            <li><a class="block py-2 px-4 hover:bg-gray-600" href="/prog.html">Programmation</a></li>
-            <li><a class="block py-2 px-4 hover:bg-gray-600" href="/Infopratiques.html">Infos pratiques</a></li>
-            <li><a class="block py-2 px-4 hover:bg-gray-600" href="#Billeterie">Billetterie</a></li>
-            <li><a class="block py-2 px-4 hover:bg-gray-600" href="/apropos.html">Qui sommes nous ?</a></li>
-            <li><a class="block py-2 px-4 hover:bg-gray-600" href="/contact.html">Nous contacter</a></li>
-        </ul>
-    </nav>
-</body>
-</html>
+---
+const currentPath = Astro.url.pathname;
+---
+<header class="bg-[#282828] flex items-center justify-between px-4 gap-8 border-b-2 ">
+<a href="/" class="font-alegreya text-white text-[30px] mb-[15px] mt-[15px] flex items-center gap-2">
+    <img src="/src/assets/logo/logo.svg" alt="Logo" class="h-10 w-10" />
+    <h1>Festiv’Halloween</h1>
+  </a>
+<button
+    id="menu-btn"
+    class="group relative z-10 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+    aria-label="Menu"
+    aria-controls="menu"
+    aria-expanded="false"
+>
+    <span class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span>
+    <span class="group-aria-expanded:opacity-0 mt-0.5"></span>
+    <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45 mt-0.5"></span>
+</button>
+
+  <nav
+    id="menu"
+    class="bg-[#282828] flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100"
+    aria-hidden="true"
+  >
+    <ul class="font-alegreya text-[24px] flex flex-col gap-4 lg:flex-row">
+        <li>
+            <a class="block p-4 rounded-lg text-white" href="/prog.html">Programmation</a>
+        </li>
+      <li>
+        <a class="block p-4 rounded-lg text-white" href="/buy">Infos pratiques</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-white" href="/sell">Invité</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-white" href="/manage">Billeterie</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-white" href="/resources">Qui somme nous ?</a>
+      </li>
+      <li>
+        <a class="block p-4 rounded-lg text-white" href="/resources">Nous contacter</a>
+      </li>
+    </ul>
+
+  </nav>
+</header>
+
+<script >
+
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>

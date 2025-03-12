@@ -45,17 +45,31 @@ export async function getallActiviteByOneAnimateurName(nom) {
     return records;
 }
 
-export async function modifFilmInformationById(id, data) {
-    const record = await pb.collection('film').modifOne(id, data);
-    return record;
+//add
+export async function addNewFilm(newFilm) {
+    await pb.collection('film').create(newFilm);
 }
 
-export async function modifActiviteInformationById(id, data) {
-    const record = await pb.collection('activite').modifOne(id, data);
-    return record;
+export async function addNewActivite(newActivite) {
+    await pb.collection('activite').create(newActivite);
 }
 
-export async function modifInviteInformationById(id, data) {
-    const record = await pb.collection('invite').modifOne(id, data);
-    return record;
+export async function addNewInvite(newInvite) {
+    await pb.collection('invite').create(newInvite);
+}
+
+//modif
+export async function updateFilmById(id, newFilm) {
+    const records = await pb.collection("film").update(id, newFilm) ;
+    return records ;
+}
+
+export async function updateActiviteById(id, newActivite) {
+    const records = await pb.collection("activite").update(id, newActivite) ;
+    return records ;
+}
+
+export async function updateInviteById(id, newInvite) {
+    const records = await pb.collection("invite").update(id, newInvite) ;
+    return records ;
 }
