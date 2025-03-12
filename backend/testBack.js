@@ -10,62 +10,62 @@ import { modifFilmInformationById } from './backend.mjs' ;
 import { modifActiviteInformationById } from './backend.mjs' ;
 import { modifInviteInformationById } from './backend.mjs' ;
 
-try {
-    const movies = await getallfilmBydate() ;
-    console.log(movies) ;
-} catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const movies = await getallfilmBydate() ;
+//    console.log(film) ;
+//} catch (e) {
+//    console.error(e) ;
+//}
 
-try {
-    const activites = await getallactiviteBydate() ;
-    console.log(activites) ;
-} catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const activites = await getallactiviteBydate() ;
+//    console.log(activites) ;
+//} catch (e) {
+//    console.error(e) ;
+//}
 
-try {
-    const invites = await getAllguestByname() ;
-    console.log(invites) ;
-}
-catch (e) {
-    console.error(e) ;
-}
+//try {  
+//    const invite = await getAllguestByname() ;
+//    console.log(invite) ;
+//}
+//catch (e) {
+//    console.error(e) ;
+//}
 
-try {
-    const film = await getFilmById('id dun film') ;
-    console.log(film) ;
-}
-catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const film = await getFilmById('52242644d4j65se') ;
+//    console.log(film) ;
+//}
+//catch (e) {
+//    console.error(e) ;
+//}
 
-try {
-    const activite = await getActiviteById('id dune activite') ;
-    console.log(activite) ;
-}
-catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const activite = await getActiviteById('g5c3f2e4f2800h0') ;
+//    console.log(activite) ;
+//}
+//catch (e) {
+//    console.error(e) ;
+//}
 
-try {
-    const invite = await getOneInviteById('id dun invite') ;
-    console.log(invite) ;
-}
-catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const invite = await getOneInviteById('lm26p21e084u49d') ;
+//    console.log(invite) ;
+//}
+//catch (e) {
+//    console.error(e) ;
+//}
    
 
-try {
-    const activite = await getallActiviteByOneAnimateurId('id dun animateur') ;
-    console.log(activite) ;
-} catch (e) {
-    console.error(e) ;
-}
+//try {
+//    const activite = await getallActiviteByOneAnimateurId('6b43861ueuwc909') ;
+//    console.log(activite) ;
+//} catch (e) {
+//    console.error(e) ;
+//}
 
 try {
-    const activite = await getallActiviteByOneAnimateurName('nom dun animateur') ;
+    const activite = await getallActiviteByOneAnimateurName('Ewald') ;
     console.log(activite) ;
 }
 catch (e) {

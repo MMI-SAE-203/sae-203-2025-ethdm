@@ -2,9 +2,7 @@ import PocketBase from 'pocketbase' ;
 const pb = new PocketBase('http://127.0.0.1:8090') ;
 
 export async function getallfilmBydate() {
-    const records = await pb.collection('film').getFullList({
-        sort: 'date_heure_film',
-    });
+    const records = await pb.collection('film').getFullList({sort: 'date_heure_film',});
     return records;
 }
 
@@ -16,7 +14,7 @@ export async function getallactiviteBydate() {
 }
 
 export async function getAllguestByname() {
-    const records = await pb.collection('invite').getFullList({sort: 'nom'}, {filter: "role = 'realisateur'||role = 'acteur'"});
+    const records = await pb.collection('invite').getFullList({sort: 'nom_inv'}, {filter: "role_inv = 'Animateur'||role_inv = 'Acteur'"});
     return records;
 }
 
@@ -36,13 +34,13 @@ export async function getOneInviteById(id) {
 }
 
 export async function getallActiviteByOneAnimateurId(id) {
-    const records = await pb.collection('activite').getFullList({filter: `invite_act.nom_inv ='${id}'`, expand: 'invite'});
+    const records = await pb.collection('activite').getFullList({filter: `invite_act.id ='${id}'`, expand: 'invite'});
     return records;
 }
 
 export async function getallActiviteByOneAnimateurName(nom) {
     const records = await pb.collection('activite').getFullList({
-        filter: `invite_act.nom_inv ='${nom}'`, expand: 'invite'
+        filter: `invite.nom_inv ='${nom}'`, expand: 'invite'
     });
     return records;
 }
