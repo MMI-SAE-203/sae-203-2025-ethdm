@@ -20,14 +20,14 @@ function formatDateHeure(dateString) {
   <h1 class="font-alegreya text-[36px] font-bold text-center mb-6">Liste des Activités</h1>
   {activite.length > 0 ? (
     <ul>
-      {activite.map(act => (
-        <li key={act.id} class="bg-[#282828] p-4">
-          <h2 class="font-alegreya pt-3 text-[24px] font-comfortaa text-white-100">{formatDateHeure(act.date_act)}
-          {act.titre_act}</h2>
-          <p class="font-ad font-[16px] mt-2">{act.desc_act}</p>
+      {activite.map(activite => (
+        <li key={activite.id} class="bg-[#282828] p-4">
+          <h2 class="font-alegreya pt-3 text-[24px] font-comfortaa text-white-100">{formatDateHeure(activite.date_act)}
+          {activite.titre_act}</h2>
+          <p class="font-ad font-[16px] mt-2">{activite.desc_act}</p>
           <div class="mt-4 text-right">
-	  <a href="pactivite" class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
-	</div>
+        <a href={`/activite/${activite.id}`} class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
+          </div>
         </li>
       ))}
     </ul>

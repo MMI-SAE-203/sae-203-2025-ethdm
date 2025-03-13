@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import { getActiviteWithInvite } from '../../../backend/backend.mjs';
+
+const { id } = Astro.params;
+
+const activite = await getActiviteWithInvite(id);
+
+function formatDateHeure(dateString) {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() - 2);
+
+  const heure = date.toLocaleTimeString('fr-FR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  return `${heure}`;
+}
+---
+
+<Layout>
+  <div class="flex justify-center">
+    <img src="/src/assets/img/conf.jpg" alt="Conférence de presse" />
+  </div>
+  
+
+  <section class="w-[375px] mx-auto bg-[#212121] text-white p-6 text-center">
+    {activite ? (
+      <>
+        <h2 class="text-[24px] uppercase font-[Alegreya SC] mb-6 font-alegreya">{activite.titre_act}</h2>
+
+        <p class="text-[16px] text-gray-300 mb-3 font-ad">{activite.desc_act}</p>
+
+        <p class="text-[24px] text-gray-300 mb-3 font-alegreya">{formatDateHeure(activite.date_act)}</p>
+  
+        <!-- Affichage de l'invité s'il existe -->
+        {activite.nom_inv && activite.prenom_inv ? (
+          <p class="text-[16px] font-semibold text-gray-300 leading-[1.6] font-ad">
+            Invité : {activite.prenom_inv} {activite.nom_inv} {activite.photo_inv}
+          </p>
+        ) : (
+          <p class="text-[16px] text-gray-400">Aucun invité spécifié.</p>
+        )}
+      </>
+    ) : (
+      <p class="text-center text-gray-400">Activité non trouvée.</p>
+    )}
+  </section>
+</Layout>
+
+

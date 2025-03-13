@@ -1,0 +1,49 @@
+---
+import { getallfilmBydate } from '../../backend/backend.mjs';
+
+
+const films = await getallfilmBydate();
+
+function formatDateHeure(dateString) {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() - 2);
+
+  const heure = date.toLocaleTimeString('fr-FR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  return `${heure}`;
+}
+---
+<section class="bg-[#212121] mx-auto space-y-4 p-6 text-white">
+    <h1 class="font-alegreya text-[36px] text-center mb-6">Programme des Films</h1>
+    {films.length > 0 ? (
+      <div class="space-y-8">
+        {['Avant première', 'Rediffusions', 'Jeunesse'].map(categorie => (
+          <div>
+            <h2 class="font-alegreya text-[24px] text-center mb-4">{categorie}</h2>
+            <div class="films grid grid-cols-1 md:grid-cols-2 gap-6">
+              {films.filter(film => film.categorie === categorie).map(film => (
+                <div class="bg-[#282828] p-4 w-100 shadow-md mx-auto">
+                  <a href={`/film/${film.id}`}>
+                    <img src={film.img} alt={film.titre} class="movie__poster w-75 mx-auto block">
+                  </a>
+                  <div class="film__info mt-4">
+                    <h3 class="font-alegreya text-[20px] font-semibold">{film.titre_film} - avec {film.acteurs_film}</h3>
+                    <p class="font-ad text-[16px] text-gray-300">À {formatDateHeure(film.date_heure_film)} en Salle {film.salle}</p>
+                    <p class="font-ad text-[16px] text-gray-400">Durée : {film.duree_film || 'Inconnue'} min</p>
+                  </div>
+                  <div class="mt-4 text-right">
+            <a href={`/film/${film.id}`} class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
+          </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="font-ad text-center text-gray-400">Aucun film programmé.</p>
+    )}
+  </section>
