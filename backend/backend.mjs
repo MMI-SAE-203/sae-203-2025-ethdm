@@ -25,7 +25,12 @@ export async function getallactiviteBydate() {
 }
 
 export async function getAllguestByname() {
-    const records = await pb.collection('invite').getFullList({sort: 'nom_inv'}, {filter: "role_inv = 'Animateur'||role_inv = 'Acteur'"});
+    let records = await pb.collection('invite').getFullList({sort: 'nom_inv'}, {filter: "role_inv = 'Animateur'||role_inv = 'Acteur'"});
+    records = records.map((invite) => {
+        invite.imgUrl = pb.files.getURL(invite, invite.photo_inv);
+        return invite
+    }
+    );
     return records;
 }
 
