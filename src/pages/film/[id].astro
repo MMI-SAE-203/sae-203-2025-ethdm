@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro"
 
 import { getFilmById, pb } from '../../../backend/backend.mjs';
 
-// Récupération de l'ID du film depuis l'URL
+
 const { id } = Astro.params;
 
-// Chargement des données du film
+
 const film = await getFilmById(id);
 
 const img_film = film.affiche_film;
@@ -34,12 +34,25 @@ function formatDateHeure(dateString) {
     <>
     <img src={img_url} alt={film.titre_film} class="w-60 mb-6 mx-auto">
       <h2 class="font-alegreya text-[34px] font-semibold">{film.titre_film}</h1>
-      <p class="text-[24px] text-gray-300 mb-2 font-semibold">{formatDateHeure(film.date_heure_film)}</p>
-      <p class="text-[16px] text-gray-300 mb-2">{film.salle_diff}</p>
-      <p class="text-[16px] text-gray-400 mb-2">Durée : {film.duree_film || 'Inconnue'} min</p>
-      <p class="text-[16px] text-gray-300 leading-[1.6] mt-4">{film.synopsis_film}</p>
-      <p class="text-[12px] text-gray-300 leading-[1.6] mt-4">{film.langue_film}</p>
-      <p class="text-[16px] text-gray-300 leading-[1.6] mt-4">{film.acteurs_film}</p>
+      <p class="font-alegreya text-[24px] text-gray-300 mb-2 font-bold">{formatDateHeure(film.date_heure_film)}</p>
+      <p class="text-[24px] text-white mb-2">{film.salle_diff}</p>
+      {
+                film.bandeannonce && (
+                  <div class="mt-6 p-4 rounded-lg">
+                    <iframe
+                      class="mt-4 rounded-lg shadow-md w-full h-64 lg:h-50"
+                      src={film.bandeannonce.replace("watch?v=", "embed/")}
+                      frameborder="0"
+                      allow="autoplay; encrypted-media"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )
+              }
+      <p class="text-[16px] text-white mb-2">Durée : {film.duree_film || 'Inconnue'} min</p>
+      <p class="text-[16px] text-white leading-[1.6] mt-4">{film.synopsis_film}</p>
+      <p class="text-[12px] text-white leading-[1.6] mt-4">{film.langue_film}</p>
+      <p class="text-[16px] text-white leading-[1.6] mt-4">{film.acteurs_film}</p>
     </>
   ) : (
     <p class="text-center text-gray-400">Film non trouvé.</p>

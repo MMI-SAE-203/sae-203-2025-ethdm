@@ -29,6 +29,7 @@ export async function getAllguestByname() {
     return records;
 }
 
+
 export async function getFilmById(id) {
     const record = await pb.collection('film').getOne(id);
     return record;
