@@ -47,6 +47,7 @@ export async function getActiviteById(id) {
 
 export async function getOneInviteById(id) {
     const record = await pb.collection('invite').getOne(id);
+    record.imgUrl = pb.files.getURL(record, record.photo_inv);
     return record;
 }
 
@@ -96,12 +97,26 @@ export async function updateInviteById(id, newInvite) {
 export async function getActiviteWithInvite(id) {
     const activite = await pb.collection('activite').getOne(id);
 
-    // Vérifier si l'activité contient un ID d'invité
-    if (activite.invite_act) {
-        // Récupérer l'invité depuis la collection "invite"
+    // Vérifier si l'activité contient des IDs d'invités
+    if (activite.invite_act && Array.isArray(activite.invite_act)) {
+        // Récupérer tous les invités liés à cette activité
+        const invites = await Promise.all(
+            activite.invite_act.map(inviteId => pb.collection('invite').getOne(inviteId))
+        );
+        
+        activite.invites = invites.map(invite => ({
+            nom: invite.nom_inv,
+            prenom: invite.prenom_inv
+        }));
+    } else if (activite.invite_act) {
+        // Si un seul invité est présent, le récupérer
         const invite = await pb.collection('invite').getOne(activite.invite_act);
-        activite.nom_inv = invite.nom_inv;
-        activite.prenom_inv = invite.prenom_inv;
+        activite.invites = [{
+            nom: invite.nom_inv,
+            prenom: invite.prenom_inv
+        }];
+    } else {
+        activite.invites = [];
     }
 
     return activite;

@@ -1,15 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getOneInviteById } from '../../../backend/backend.mjs';
+import { getOneInviteById, pb } from '../../../backend/backend.mjs';
 
 const { id } = Astro.params;
 const invite = await getOneInviteById(id);
+
+const img_url = await pb.files.getURL(invite, invite.photo_inv);
+console.log(invite);
+
 ---
 <Layout>
 
     <section class="w-[375px] mx-auto bg-[#212121] text-white p-6 text-center">
       {invite ? (
-          <img src={invite.photo_inv} alt={invite.nom_inv} class="w-full rounded-lg mb-4">
+          <img src={img_url} class="w-full  mb-4">
           <h1 class="text-[28px] font-bold">{invite.prenom_inv} {invite.nom_inv}</h1>
           <p class="text-[20px] text-gray-300 mb-2">{invite.role_inv}</p>
           <p class="text-[16px] text-gray-400 leading-[1.6]">{invite.bio}</p>

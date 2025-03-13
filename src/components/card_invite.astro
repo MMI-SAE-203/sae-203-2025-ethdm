@@ -7,23 +7,24 @@ console.log(invite);
 ---
 <section class=" mx-auto bg-[#212121] text-white p-6 text-center">
 
-    <h2 class="text-[24px] font-bold uppercase font-[Alegreya SC] mb-4">Nos Invités</h2>
+    <h2 class="text-[34px] font-bold uppercase font-alegreya mb-4 text-white">Nos Invités</h2>
 
     {invite.length > 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {invite.map(invite => (
                 <div key={invite.id} class="bg-[#282828] p-4">
                     <img src={invite.imgUrl} class="w-180 h-120 object-cover mb-3 mx-auto">
-                    <h3 class="text-[20px] font-semibold">{invite.prenom_inv} {invite.nom_inv}</h3>
-                    <p class="text-[16px] text-gray-300">{invite.role_inv}</p>
+                    <h3 class="text-[20px] font-semibold text-white font-alegreya">{invite.prenom_inv} {invite.nom_inv}</h3>
+                    <p class="text-[16px] text-gray-300 font-ad">{invite.role_inv}</p>
                     <div class="mt-4 text-center">
-                        <a href={`/film/${invite.id}`} class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
+                        <a href={`/invite/${invite.id}`} class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
                     </div>
                 </div>
+
             ))}
         </div>
     ) : (
-        <p class="text-center text-gray-400">Aucun invité disponible.</p>
+        <p class="text-center text-gray-400 font-[Ad]">Aucun invité disponible.</p>
     )}
 
 </section>
