@@ -1,7 +1,7 @@
 import { e as createComponent, m as maybeRenderHead, h as addAttribute, r as renderTemplate, i as renderComponent } from '../chunks/astro/server_pyiVo5FK.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from '../chunks/Layout_h59WDHO1.mjs';
+import { $ as $$Layout } from '../chunks/Layout_DMBjFD4y.mjs';
 import 'clsx';
 import { a as getAllguestByname } from '../chunks/backend_CBAZPD0T.mjs';
 export { renderers } from '../renderers.mjs';
