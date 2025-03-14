@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import { getActiviteWithInvite } from '../../../backend/backend.mjs';
+import { getAllguestByname } from '../../../backend/backend.mjs';
+
+const { id } = Astro.params;
+
+const activite = await getActiviteWithInvite(id);
+const invite = await getAllguestByname();
+
+
+function formatDateHeure(dateString) {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() - 2);
+
+  const heure = date.toLocaleTimeString('fr-FR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+
+  return `${heure}`;
+}
+---
+
+<Layout>
+  <div class="flex justify-center">
+    <img src="/src/assets/img/conf.jpg" alt="Conférence de presse" />
+  </div>
+  
+
+  <section class="w-[375px] mx-auto bg-[#212121] text-white p-6 text-center">
+    {activite ? (
+      <>
+        <h2 class="text-[24px] uppercase mb-6 font-alegreya">{activite.titre_act}</h2>
+
+        <p class="text-[16px] text-gray-300 mb-3 font-ad">{activite.desc_act}</p>
+
+        <p class="text-[24px] text-gray-300 mb-3 font-alegreya">{formatDateHeure(activite.date_act)}</p>
+        {activite.invites.length > 0 ? (
+                <div class="mt-6">
+                    <h2 class="font-alegreya text-[24px] font-semibold text-[#E6010D]">Invité(s) :</h2>
+                    <ul class="mt-3 space-y-2">
+                        {activite.invites.map(invite => (
+                            <li key={invite.nom} class="text-[18px]">
+                                {invite.prenom} {invite.nom}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <p class="text-gray-400 mt-4">Aucun invité spécifié.</p>
+            )}
+        </>
+    ) : (
+        <p class="text-center text-gray-400">Activité non trouvée.</p>
+    )}
+                        <div class="mt-4 text-center">
+                          <a href={`/invite/${invite.id}`} class="font-Lilita inline-block font-[Lilita One] text-[22px] px-4 py-2 border-2 border-[#FF1717] text-[#FF1717] bg-[#212121] hover:bg-[#FF1717] hover:text-white transition">En savoir plus</a>
+                      </div>
+  </section>
+</Layout>
+
+
