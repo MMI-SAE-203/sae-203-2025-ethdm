@@ -1,10 +1,10 @@
 import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_pyiVo5FK.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from '../chunks/Layout_DMBjFD4y.mjs';
+import { $ as $$Layout } from '../chunks/Layout_ODxdrUo4.mjs';
 export { renderers } from '../renderers.mjs';
 
-const $$Apropos = createComponent(($$result, $$props, $$slots) => {
+const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="w-full"> <img src="/src/assets/img/colisée.jpg" alt="Image du Festival" class="w-full h-auto object-cover"> </div> <section class="container mx-auto p-8 space-y-8 text-center text-white"> <h1 class="text-[36px] font-bold uppercase font-alegreya">Notre histoire et nos objectifs</h1> <p class="text-start text-[18px] leading-relaxed font-ad">
 Le festival Festiv'Halloween, bien qu'en étant à sa première édition, s'est déjà forgé une identité forte 
             autour de quatre valeurs essentielles qui guident son organisation et sa vision. 
@@ -20,14 +20,14 @@ Enfin, Festiv'halloween n'oublie pas sa mission première : divertir son public.
 </p> </div> </div> <p class="text-start text-[18px] leading-relaxed font-ad">
 En combinant ces quatre valeurs, Festiv'halloween s'efforce de créer un événement unique qui non seulement divertit, mais aussi enrichit, inspire et rassemble. Malgré sa jeunesse, le festival ambitionne de devenir un pilier culturel de la région, offrant chaque année une expérience mémorable aux amateurs de frissons et contribuant à l'épanouissement de la scène cinématographique locale et internationale.
 </p> </section> ` })}`;
-}, "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/apropos.astro", void 0);
+}, "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/apropos/index.astro", void 0);
 
-const $$file = "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/apropos.astro";
+const $$file = "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/apropos/index.astro";
 const $$url = "/apropos";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
     __proto__: null,
-    default: $$Apropos,
+    default: $$Index,
     file: $$file,
     url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));

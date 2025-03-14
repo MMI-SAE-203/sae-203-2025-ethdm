@@ -1,22 +1,22 @@
 import { e as createComponent, i as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_pyiVo5FK.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Layout } from '../chunks/Layout_DMBjFD4y.mjs';
+import { $ as $$Layout } from '../chunks/Layout_ODxdrUo4.mjs';
 export { renderers } from '../renderers.mjs';
 
-const $$Contact = createComponent(($$result, $$props, $$slots) => {
+const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="w-full"> <img src="/src/assets/img/coliséenom.jpg" alt="Image du Festival" class="w-full h-auto object-cover"> </div> <h2 class="text-[28px] font-bold text-center mt-8 text-white font-alegreya">Contacter le festival</h2> <section class="container mx-auto px-6 py-8"> <form action="#" method="POST" class="max-w-lg mx-auto bg-[#1e1e1e] p-6 space-y-4"> <label for="email" class="block text-[18px] font-semibold text-white">Email</label> <input type="email" id="email" name="email" placeholder="Entrez votre adresse mail" class="w-full p-3 bg-white border border-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-[#E6010D]" required> <label for="name" class="block text-[18px] font-semibold text-white">Nom</label> <input type="text" id="name" name="name" placeholder="Entrez votre nom" class="w-full p-3 bg-white border border-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-[#E6010D]" required> <label for="message" class="block text-[18px] font-semibold text-white">Votre message</label> <textarea id="message" name="message" placeholder="Dites nous tout" rows="5" class="w-full p-3 bg-white border border-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-[#E6010D]" required></textarea> <button type="submit" class="w-full bg-[#E6010D] text-white font-semibold py-3 hover:bg-black transition">
 Envoyer
 </button> </form> </section>  <section class="container mx-auto px-6 py-8 text-center"> <div class="bg-[#1e1e1e] p-6 max-w-lg mx-auto"> <p class="text-[20px] font-semibold text-white font-alegreya">Coordonnées :</p> <p class="text-[18px] text-gray-300 font-ad">festivhalloween@gmail.com</p> <p class="text-[18px] text-gray-300 font-ad">03 01 52 45 65</p> </div> <h2 class="text-[24px] font-bold text-center mt-8 text-white font-alegreya">Nous trouver</h2> <div class="w-full max-w-lg mx-auto mt-4"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2687.4998538120376!2d6.793267176493256!3d47.51088557917615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479219d3a7d5c141%3A0x858edf79b7bd0b0!2sLe%20Colis%C3%A9e!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe> </div> <p class="text-[18px] text-gray-300 mt-4 font-ad">8 Rue Henri Mouhot, 25200 Montbéliard</p> </section> ` })}`;
-}, "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/contact.astro", void 0);
+}, "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/contact/index.astro", void 0);
 
-const $$file = "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/contact.astro";
+const $$file = "C:/Users/mmi/Documents/MMI/MMI1/SAE/SAE-203/sae-203-2025-ethdm/src/pages/contact/index.astro";
 const $$url = "/contact";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
     __proto__: null,
-    default: $$Contact,
+    default: $$Index,
     file: $$file,
     url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));

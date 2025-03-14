@@ -77,4 +77,4 @@ async function getActiviteWithInvite(id) {
     return activite;
 }
 
-export { getAllguestByname as a, getFilmById as b, getallfilmBydate as c, getOneInviteById as d, getallactiviteBydate as e, getActiviteWithInvite as g, pb as p };
+export { getAllguestByname as a, getallactiviteBydate as b, getFilmById as c, getallfilmBydate as d, getOneInviteById as e, getActiviteWithInvite as g, pb as p };
