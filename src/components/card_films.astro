@@ -2,7 +2,8 @@
 import { getallfilmBydate } from '../../backend/backend.mjs';
 
 
-const films = await getallfilmBydate();
+const filmdate = await getallfilmBydate();
+
 
 function formatDateHeure(dateString) {
   const date = new Date(dateString);
@@ -20,13 +21,13 @@ function formatDateHeure(dateString) {
 ---
 <section class="bg-[#212121] mx-auto space-y-4 p-6 text-white">
     <h1 class="font-alegreya text-[36px] text-center mb-6">Programme des Films</h1>
-    {films.length > 0 ? (
+    {filmdate.length > 0 ? (
       <div class="space-y-8">
         {['Avant première', 'Rediffusions', 'Jeunesse'].map(categorie => (
           <div>
             <h2 class="font-alegreya text-[24px] text-center mb-4">{categorie}</h2>
             <div class="films grid grid-cols-1 md:grid-cols-2 gap-6">
-              {films.filter(film => film.categorie === categorie).map(film => (
+              {filmdate.filter(film => film.categorie === categorie).map(film => (
                 <div class="bg-[#282828] p-4 w-100 shadow-md mx-auto">
                   <a href={`/film/${film.id}`}>
                     <img src={film.img} alt={film.titre} class="movie__poster w-75 mx-auto block">
@@ -49,3 +50,4 @@ function formatDateHeure(dateString) {
       <p class="font-ad text-center text-gray-400">Aucun film programmé.</p>
     )}
   </section>
+

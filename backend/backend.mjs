@@ -150,3 +150,15 @@ export async function getActiviteWithImage(id) {
 
     return activite;
 }
+
+export async function getFilmBycategorie(cat) {
+    const filmcat = await pb.collection('film').getFullList({
+        filter: `categorie = '${cat}'`,
+    });
+    filmcat.forEach((cata) => {
+        cata.img = pb.files.getURL(cata, cata.affiche_film);
+        return cata;
+    });
+    console.log(filmcat);
+    return filmcat;  
+  }

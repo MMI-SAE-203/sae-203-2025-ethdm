@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro"
 import { getFilmById, pb } from '../../../backend/backend.mjs';
 
 
+
 const { id } = Astro.params;
 
 
@@ -58,5 +59,7 @@ function formatDateHeure(dateString) {
     <p class="text-center text-gray-400">Film non trouvé.</p>
   )}
 </section>
+
+
 
 </Layout>
